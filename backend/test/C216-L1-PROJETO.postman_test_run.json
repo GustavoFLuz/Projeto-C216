@@ -1,0 +1,219 @@
+{
+	"id": "25a8e864-5944-4c81-b1b3-a454b1d8543c",
+	"name": "C216-L1-PROJETO",
+	"timestamp": "2024-12-05T21:13:23.819Z",
+	"collection_id": "38361514-e1f28e97-26ee-4f54-9957-9d77a8573b16",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 12,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-12-05T21:13:21.249Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "06531d6e-23a5-4585-93c0-5659d84fb6af",
+			"name": "Reset Database",
+			"url": "http://localhost:8000/api/v1/tarefas/reset/",
+			"time": 414,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should confirm deletion": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should confirm deletion": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				414
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should confirm deletion": true
+				}
+			]
+		},
+		{
+			"id": "1d0bccc8-ff1d-44e8-be44-edf45283ac47",
+			"name": "Criar Nova Tarefa",
+			"url": "http://localhost:8000/api/v1/tarefas",
+			"time": 114,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Response should contain confirmation message": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should contain confirmation message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				114
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Response should contain confirmation message": true
+				}
+			]
+		},
+		{
+			"id": "ebd9096d-d8cb-4fb5-9583-8c83b0cfce9b",
+			"name": "Pegar Task por Usuario",
+			"url": "http://localhost:8000/api/v1/tarefas/Rafael",
+			"time": 222,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should contain at least one task": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should contain at least one task": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				222
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should contain at least one task": true
+				}
+			]
+		},
+		{
+			"id": "0db8e3ac-6fa6-4e58-98ed-51ffed8681d8",
+			"name": "Completar Task",
+			"url": "http://localhost:8000/api/v1/tarefas/completar/Rafael/1",
+			"time": 624,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should confirm task update": true,
+				"Task was marked as completed": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should confirm task update": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Task was marked as completed": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				624
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should confirm task update": true,
+					"Task was marked as completed": true
+				}
+			]
+		},
+		{
+			"id": "7c8895d6-2fa4-461c-92a5-7cfbb2934d8b",
+			"name": "Apagar Task",
+			"url": "http://localhost:8000/api/v1/tarefas/Rafael/1",
+			"time": 40,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should confirm task delete": true,
+				"Task doesn't exists": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should confirm task delete": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Task doesn't exists": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				40
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should confirm task delete": true,
+					"Task doesn't exists": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1414,
+	"collection": {
+		"requests": [
+			{
+				"id": "06531d6e-23a5-4585-93c0-5659d84fb6af",
+				"method": "DELETE"
+			},
+			{
+				"id": "1d0bccc8-ff1d-44e8-be44-edf45283ac47",
+				"method": "POST"
+			},
+			{
+				"id": "ebd9096d-d8cb-4fb5-9583-8c83b0cfce9b",
+				"method": "GET"
+			},
+			{
+				"id": "0db8e3ac-6fa6-4e58-98ed-51ffed8681d8",
+				"method": "PUT"
+			},
+			{
+				"id": "7c8895d6-2fa4-461c-92a5-7cfbb2934d8b",
+				"method": "DELETE"
+			}
+		]
+	}
+}
