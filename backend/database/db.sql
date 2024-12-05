@@ -1,8 +1,4 @@
-DROP DATABASE IF EXISTS "todo-db";
-
-CREATE DATABASE "todo-db";
-
-USE "todo-db";
+DROP TABLE IF EXISTS "tarefas";
 
 CREATE TABLE "tarefas" (
     "id" SERIAL,
@@ -11,5 +7,5 @@ CREATE TABLE "tarefas" (
     "data" DATE NOT NULL,
     "descricao" TEXT NOT NULL,
     "completado" BOOLEAN DEFAULT FALSE NOT NULL,
-    PRIMARY KEY ("id","usuario");
-)
+    PRIMARY KEY ("id","usuario")
+);
