@@ -43,19 +43,17 @@ def inserir_tarefa():
     print("payload")
     print(payload)
     tarefas_g.append({
-        "id": len(tarefas_g) + 1,
-        "completado": False,
         "nome": nome,
         "data": data,
         "descricao": descricao,
         "usuario": usuario
     })
     try:
-        #response = requests.post(f'{API_BASE_URL}/api/v1/tarefas/', json=payload)
-        #if response.status_code == 201:
-        return redirect(f"/tarefas/{usuario}")
-        #else:
-        #    return "Erro ao inserir tarefa", 500
+        response = requests.post(f'{API_BASE_URL}/api/v1/tarefas/', json=payload)
+        if response.status_code == 201:
+            return redirect(f"/tarefas/{usuario}")
+        else:
+            return "Erro ao inserir tarefa", 500
     except:
         return "Erro ao inserir tarefa", 500
 
