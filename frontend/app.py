@@ -14,7 +14,6 @@ def index():
 # Rota para exibir o formulário de cadastro
 @app.route('/tarefas/<username>', methods=['GET'])
 def lista_de_tarefas(username):
-    print("Lista de tarefas")
     try:
         response = requests.get(f'{API_BASE_URL}/api/v1/tarefas/{username}')
         print(response.status_code)
@@ -27,7 +26,6 @@ def lista_de_tarefas(username):
 # Rota para enviar os dados do formulário de cadastro para a API
 @app.route('/inserir', methods=['POST'])
 def inserir_tarefa():
-    print("Inserir")
     nome = request.form['nome']
     data = request.form['date']
     descricao = request.form['desc']
@@ -40,11 +38,7 @@ def inserir_tarefa():
         'usuario': usuario
     }
     
-    print(payload)
-
-    print(f'{API_BASE_URL}/api/v1/tarefas/')
     response = requests.post(f'{API_BASE_URL}/api/v1/tarefas/', json=payload)
-    print(response.status_code)
     if response.status_code == 201:
         return redirect(f"/tarefas/{usuario}")
     else:
