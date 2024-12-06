@@ -94,3 +94,5 @@ async def resetarDB():
         return {"message": "DB Resetado!"}
     finally:
         await connection.close()
+        
+resetarDB()

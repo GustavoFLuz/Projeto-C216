@@ -24,7 +24,7 @@
                     </div>
                     <div class="col-4">
                         <label for="date" class="form-label">Data final:</label><br>
-                        <input type="datetime-local" id="date" name="date" class="form-control" placeholder=""><br><br>
+                        <input type="date" id="date" name="date" class="form-control" placeholder=""><br><br>
                     </div>
                 </div>
                 <div class="row">
@@ -56,7 +56,7 @@
                 {% for tarefa in tarefas %}
                 <tr>
                     <td>{{ tarefa.id }}</td>
-                    {% if tarefa.concluido %}
+                    {% if tarefa.completado %}
                         <td>Sim</td>
                     {% else %}
                         <td>Não</td>
