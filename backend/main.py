@@ -20,6 +20,12 @@ class Tarefa(BaseModel):
     descricao: str
     completado: Optional[bool] = False
 
+class TarefaAtualizada(BaseModel):
+    usuario: Optional[str] = None
+    nome: Optional[str] = None
+    data: Optional[date] = None
+    descricao: Optional[str] = None
+
 @app.middleware("http")
 async def log_requests(request: Request, call_next):
     start_time = time.time()
@@ -92,6 +98,23 @@ async def resetarDB():
             sql_commands = file.read()
         await connection.execute(sql_commands)
         return {"message": "DB Resetado!"}
+    finally:
+        await connection.close()
+
+@app.patch("/api/v1/tarefas/{usuario}/{id}")
+async def editarTarefa(usuario:str, id:int, TarefaAtualizada:TarefaAtualizada):
+    connection = await start_database()
+    try:
+        query = "SELECT * FROM tarefas WHERE id = $1 AND usuario = $2"
+        tarefa = await connection.fetchrow(query, id, usuario)
+        if tarefa is None:
+            raise HTTPException(status_code=404, datail="Tarefa não encontrada!")
+        
+        update_query = "UPDATE tarefas SET nome = COALESCE($1,nome), data = COALESCE($2,data), descricao = COALESCE($3,descricao) WHERE id = $4 AND usuario = $5"
+
+        await connection.execute(update_query, TarefaAtualizada.nome, TarefaAtualizada.data, TarefaAtualizada.descricao, id, usuario)
+
+        return {"message": "Taraefa atualizada com sucesso!"}
     finally:
         await connection.close()
         

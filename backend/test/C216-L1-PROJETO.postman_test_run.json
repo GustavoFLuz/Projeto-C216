@@ -1,22 +1,22 @@
 {
-	"id": "25a8e864-5944-4c81-b1b3-a454b1d8543c",
+	"id": "9ff2a689-7ad9-4749-a8b2-bac187e5ba71",
 	"name": "C216-L1-PROJETO",
-	"timestamp": "2024-12-05T21:13:23.819Z",
+	"timestamp": "2024-12-06T19:12:02.241Z",
 	"collection_id": "38361514-e1f28e97-26ee-4f54-9957-9d77a8573b16",
 	"folder_id": 0,
 	"environment_id": "0",
-	"totalPass": 12,
+	"totalPass": 15,
 	"delay": 0,
 	"persist": true,
 	"status": "finished",
-	"startedAt": "2024-12-05T21:13:21.249Z",
+	"startedAt": "2024-12-06T19:11:58.027Z",
 	"totalFail": 0,
 	"results": [
 		{
 			"id": "06531d6e-23a5-4585-93c0-5659d84fb6af",
 			"name": "Reset Database",
 			"url": "http://localhost:8000/api/v1/tarefas/reset/",
-			"time": 414,
+			"time": 994,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -36,7 +36,7 @@
 				}
 			},
 			"times": [
-				414
+				994
 			],
 			"allTests": [
 				{
@@ -49,7 +49,7 @@
 			"id": "1d0bccc8-ff1d-44e8-be44-edf45283ac47",
 			"name": "Criar Nova Tarefa",
 			"url": "http://localhost:8000/api/v1/tarefas",
-			"time": 114,
+			"time": 108,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -69,7 +69,7 @@
 				}
 			},
 			"times": [
-				114
+				108
 			],
 			"allTests": [
 				{
@@ -82,7 +82,7 @@
 			"id": "ebd9096d-d8cb-4fb5-9583-8c83b0cfce9b",
 			"name": "Pegar Task por Usuario",
 			"url": "http://localhost:8000/api/v1/tarefas/Rafael",
-			"time": 222,
+			"time": 170,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -102,7 +102,7 @@
 				}
 			},
 			"times": [
-				222
+				170
 			],
 			"allTests": [
 				{
@@ -112,10 +112,49 @@
 			]
 		},
 		{
+			"id": "0c9ac07c-b3c3-4a25-8e88-b026be9582d2",
+			"name": "Editar Tarefa",
+			"url": "http://localhost:8000/api/v1/tarefas/Rafael/1",
+			"time": 99,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should confirm task update": true,
+				"Task was updated": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should confirm task update": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Task was updated": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				99
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should confirm task update": true,
+					"Task was updated": true
+				}
+			]
+		},
+		{
 			"id": "0db8e3ac-6fa6-4e58-98ed-51ffed8681d8",
 			"name": "Completar Task",
 			"url": "http://localhost:8000/api/v1/tarefas/completar/Rafael/1",
-			"time": 624,
+			"time": 124,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -140,7 +179,7 @@
 				}
 			},
 			"times": [
-				624
+				124
 			],
 			"allTests": [
 				{
@@ -154,7 +193,7 @@
 			"id": "7c8895d6-2fa4-461c-92a5-7cfbb2934d8b",
 			"name": "Apagar Task",
 			"url": "http://localhost:8000/api/v1/tarefas/Rafael/1",
-			"time": 40,
+			"time": 103,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -179,7 +218,7 @@
 				}
 			},
 			"times": [
-				40
+				103
 			],
 			"allTests": [
 				{
@@ -191,7 +230,7 @@
 		}
 	],
 	"count": 1,
-	"totalTime": 1414,
+	"totalTime": 1598,
 	"collection": {
 		"requests": [
 			{
@@ -205,6 +244,10 @@
 			{
 				"id": "ebd9096d-d8cb-4fb5-9583-8c83b0cfce9b",
 				"method": "GET"
+			},
+			{
+				"id": "0c9ac07c-b3c3-4a25-8e88-b026be9582d2",
+				"method": "PATCH"
 			},
 			{
 				"id": "0db8e3ac-6fa6-4e58-98ed-51ffed8681d8",
